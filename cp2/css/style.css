@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+    font-family: Verdana, GeJneva, Tahoma, sans-serif;
+    background-color: #5eff00;
+    background: url(../pics/Moon_Rotation.png) no-repeat top right, url(../pics/shuttle.png) no-repeat bottom left, linear-gradient(to right, #ffffff, #00ff00);
+    }
+h1,h2,h3,h4 {
+    font-family: 'Press Start 2P', sans-serif;
+            }
+h1 {
+    color: #026102;
+    }
+#top {
+    text-shadow: 0 0 10px greenyellow;
+}
+#hs {
+    color: #0000FF;
+    border-left: #00d7fd 2px solid;
+    margin-left: 20px;
+    padding-left: 10px;
+    }
+dt {
+    font-weight: Bold;
+    text-transform: uppercase;
+    margin: .5rem 0;
+    }
+dd, p{
+    text-align: justify;
+      }
+figure>img {
+    border-radius: 35%;
+    border-radius: 10%/50%;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 7.5px black, -5px -5px 7.5px black;
+            }
+table {
+    width: 100%;
+        }
+table, th, td {
+        border: black solid 1px;
+                }  
+tbody tr:nth-child(2n) {
+        background-color: #ddd;
+                        }
+tbody tr:hover {
+    background-color: gold;
+    cursor: pointer;
+                }
+thead , tfoot {
+    background-color: black;
+    color: gold;
+                    }
+table:first-of-type td:last-child {
+    text-align: right;
+}
+td:nth-child(2) {
+    text-align: center;
+                }
+ol ol {
+    list-style: upper-roman;
+}
+ul {
+    list-style-image: url(../pics/bluebullet-small.png);
+}
