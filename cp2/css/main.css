@@ -173,3 +173,13 @@ body {
     color: #ffffff;
     text-decoration: none;
 }
+/* REGISTER */
+#wrapper form div {
+    margin: .5rem 0;
+}
+#wrapper form div>*:first-child {
+    display: inline-block;
+    width: 25%;
+    font-weight: bold;
+    text-align: right;
+}
