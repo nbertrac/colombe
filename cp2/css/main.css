@@ -1,15 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 html, body {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 * {
     margin: 0;
 }
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-image: url(../pics/rouage.jpg);
+    background-image: url(../pics/mafia.jpg);
     background-size: cover;
+    background-attachment: fixed;
+}
+@keyframes neon {
+    0% {
+        text-shadow: #b0e0e6 0 0 1rem;
+
+    }
+    20% {
+        text-shadow: #663399 0 0 1rem;
+        transform: rotate(10deg);
+    }
+    40% {
+        text-shadow: #000000 0 0 1rem;
+    }
+    60% {
+        text-shadow: #808080 0 0 1rem;
+        transform: rotate(0);
+    }
+    80% {
+        text-shadow: #00ffff 0 0 1rem;
+    }
+    100% {
+        text-shadow: #ffffff 0 0 1rem;
+        transform: rotate(-10deg);
+    }
 }
 
 /* WRAPPER */
@@ -35,6 +60,7 @@ body {
 #name h1 {
     height: 5rem;
     line-height: 5rem;
+    animation: neon 5s ease-in-out 0s infinite both alternate;
 }
 #logo img {
     width: 5rem;
@@ -53,15 +79,97 @@ body {
 }
 #menu .items a {
     text-decoration: none;
-    border: steelblue groove .25rem;
+    border: #4682b4 groove .25rem;
     box-shadow: 0 0 1rem moccasin;
-    color: crimson;
+    color: #dc143c;
     background-color: cornsilk;
     padding: .30rem;
     transition: all .4s ease-in-out;
                 }
 #menu .items a:hover {
-    border: crimson groove .25rem;
-    color: black;
+    border: #dc143c groove .25rem;
+    color: #000000;
     background-color: moccasin;
+}
+/* TEAM MEMBERS */
+#emps .emp {
+    text-align: center;
+    width: 200px;
+    height: 250px;
+}
+#emps .member {
+    border-style: ridge;
+    border-width: .75;
+    border-radius: 50%;
+    width: 150px;
+    transition: all .5s;
+}
+#emps .member:hover {
+    border-color: black;
+}
+#emps .girl:hover {
+    transform: scale(150%) rotate(-360deg);
+}
+#emps .boy:hover {
+    transform: scale(150%) rotate(360deg);
+}
+#emps .girl {
+    border-color: #d87093;
+}
+#emps .boy {
+    border-color: #0000ff;
+}
+#emps {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+}
+/* MULTIMEDIA */
+#media {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#media h2 {
+    border: #000000 solid .25rem;
+    margin: 1rem;
+}
+#media .interview {
+    width: 30%;
+    border: #000000 solid .25rem;
+}
+#conv {
+    width: 100%;
+}
+#media audio {
+    width: 100%;
+}
+/* FOOTER */
+#bottom {
+    background-color: #000000;
+    color: #ffffff;
+        }
+#bottom h2 {
+    text-align: center;
+    /* font-variant: small-caps; */
+}
+#bottom .level1 {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+#bottom .level2 {
+    list-style-image: url(../pics/cthulhu2.png);
+}
+#bottom .level1>li {
+    margin: 1rem 0;
+    padding: 0 2rem;
+    border-left: dotted #ffffff .25rem;
+}
+#bottom .level1>li:first-child {
+    border-left: none;
+}
+#bottom a {
+    color: #ffffff;
+    text-decoration: none;
 }
