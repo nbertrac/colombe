@@ -103,7 +103,7 @@
                 <legend>Prétentions salariales</legend>
                 <div>
                     <label for="salary">Salaire : </label>
-                    <input type="range" name="salary" id="salary" min="2005" max="8000" step="100" value="3100">
+                    <input type="range" name="salary" id="salary" min="2005" max="8000" step="100" value="3100" onchange="document.getElementById('valSal').textContent=this.value;">
                     <output id="valSal"></output>
                 </div>
                 <fieldset>
