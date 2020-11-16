@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - exemple 2</title>
+    <style>
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            /* flex-flow: row wrap; */
+            justify-content: flex-start;
+            border: 1px solid #ff0000;
+        }
+        section > div {
+            border: 1px solid #d9ff00;
+        }
+        section > div:last-child {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum illum, dolorum velit deleniti repudiandae dolore qui, aut commodi vero voluptatibus optio delectus iure officiis dolorem? Totam consequuntur harum aliquid odio?</div>
+        <div>Lorem, ipsum dolor.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+    </section>
+</body>
+</html>

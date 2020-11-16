@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - exemple 1</title>
+    <style>
+        section {
+            display: flex;
+            align-items: center;
+            border: 1px solid #008000;
+            /* justify-content: center; don't work due to flex grow =1 */
+        }
+        section > div {
+            background-color: #ffff00;
+            border: 1px solid #ff0000;
+            flex: 1 1 0em;
+        }
+        section > div:first-child {
+            flex: 1 0 0em;
+            order: 3;
+        }
+        section > div:nth-child(2) {
+            flex-grow: 2;
+            align-self: flex-end;
+            order: 2;
+        }
+        section > div:last-child {
+            order: 1;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum quisquam tenetur facere consequuntur assumenda nihil unde eligendi debitis doloribus fugiat quaerat, odio suscipit est perferendis incidunt repellat delectus distinctio sapiente.
+        </div>
+        <div>
+            lorem, ipsum.
+        </div>
+        <div>
+            Lorem
+        </div>
+    </section>
+</body>
+</html>
