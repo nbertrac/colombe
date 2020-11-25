@@ -30,3 +30,31 @@ while(guess!==resultat) {
                             } 
                         }
 alert("Bravo!");
+                         //Alternative//
+const resultat = Math.round(Math.random()*10);
+let guess = Number(prompt("Devine mon nombre"));
+while(guess!==resultat) {
+    if(guess>resultat) {
+        guess = Number(prompt("Trop grand, essaye encore"));
+                         } 
+    else if(guess<resultat) {
+        guess = Number(prompt("Trop petit, essaye encore"));
+                             } 
+                        }
+alert("Bravo!");
+                         //Alternative bollean//
+ const resultat = Math.round(Math.random()*10);
+ let guess = Number(prompt("Devine mon nombre"));
+ let gagné = false;
+ do{
+     if(guess<resultat) {
+        guess = Number(prompt("Trop petit, essaye encore"));
+     }
+     else if (guess>resultat) {
+        guess = Number(prompt("Trop grand, essaye encore"));
+     }
+     else {
+         gagné = true;
+         alert("Bravo");
+     }
+ }while(!gagné)
