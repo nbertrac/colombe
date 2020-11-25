@@ -164,7 +164,7 @@ isNaN(valeur); //fonction pour voir si la valeur est un nombre//
 switch(valeur){
     case 1:
 
-    case 2:
+    case 2:                                                //Façon propre d'utilisé un switch est de mettre un break a chaque case. Selement la case séléctionné s'affichera.//
     
     default:
 
