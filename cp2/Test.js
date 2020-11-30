@@ -253,3 +253,83 @@ function dv(name) {
     }
     return (doubleT);
 }
+ //for ... of
+const ttt = [5,2,3,9];
+
+for (element of ttt) {
+    console.log(element);
+}
+
+const f2 =(t) => {
+    for (element of ttt) {
+        console.log(element);
+    }
+}
+
+//taille du tableau
+ttt.length
+
+//ajouter un élément à la fin
+const element = 11;
+ttt.push(element);
+
+// enlever un élément à la fin en le récuperant
+const elem= ttt.pop();
+
+// ajouter un élément au debut du tableau :
+ttt.unshift(elem);
+
+// enlever un élément du début du tableau
+const elem2 = ttt.shift();
+
+// accès à un élément
+const elem3 = ttt[0];
+ttt[0] = 62;
+
+//rq: la syntax d'accès au membre d'un objet
+// 1- L'opérateur d'indirection '.'
+// 2- les [
+// la différence étant que les crochets permettes d'avoir des nom qui ne serait pas des nom de variable valide
+
+ttt["lenght"]; //et //
+ttt.lenght; //sont équivalent!
+
+
+/*
+Exercice:
+Ecrire le corps de la fonction, qui prend en argument un tableau, un élément et une position et qui retourne un nouveau tableau ou l'élément a été inséré à la position donnée */
+
+//Version trop compliquer (et pa fini)
+const insererDansTableau = (tab, elem, pos) => {
+    const aRetourner = [];
+    let t = true;
+    let v = 0;
+    for(i = 0; i<=tab.length; i++){
+        if(t ===true) {
+            v = i;
+        }
+        if(t ===false) {
+            v = i-1;
+        }
+        if (i === pos) {
+            aRetourner[i] = elem;
+            v = i-1;
+            t = false;
+        }
+        if (i !== pos){
+            aRetourner[i] = tab[v];
+            t = true;
+        }
+    }
+    return aRetourner;
+}
+
+//VERSION SIMPLE
+const insererDansTab = (tab, elem, pos) => {
+    const aRetourner = [];
+    for(i = 0; i<=tab.length; i++){
+        if(i == pos) aRetourner.push(elem);
+        aRetourner.push(tab[i]);
+    }
+    return aRetourner;
+}
