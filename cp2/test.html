@@ -1,0 +1,176 @@
+<!--Bertrac Nathan -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compteur</title>
+</head>
+<body>
+    <main>
+        <input type="button" id="n1"></button>
+        <p>0</p>
+        <input type="button" id="n2"></button>
+    </main>
+    <script>
+        const paragraph = document.querySelector('p').textContent;
+        const Button = document.getElementById('n1');
+        const Button2 = document.getElementById('n2');
+        let result = 0;
+        const increment = () => {
+            result = result + 1
+            paragraph = result;
+        }
+        const decrement = () => {
+            result = result - 1;
+            paragraph = result;
+        }
+        Button.onclick = increment;
+        Button2.onclick = decrement;
+    </script>
+</body>
+</html>
+
+
+
+js;;;
+
+let counter = 0;
+
+document.getElementById("btnincrement").addEventListener("click", (e) => {
+  counter++;
+  display();
+});
+
+document.getElementById("btndecrement").addEventListener("click", (e) => {
+  counter--;
+  display();
+});
+
+document.getElementById("btnReset").addEventListener("click", (e) => {
+  counter = 0;
+  display();
+});
+
+const display = () => {
+  document.getElementById(
+    "pcontainer"
+  ).innerText = `The value of counter : ${counter}`;
+};
+
+
+
+
+html;;;;
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 1</title>
+    <script src="Hussain_ABDUL_exercise.js" defer></script>
+    <style>
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <h1>Exercise 1</h1>
+    </div>
+    <div class="center">
+      <input
+        type="button"
+        name="Increment"
+        id="btnincrement"
+        value="Increment"
+      />
+      <input
+        type="button"
+        name="Decrement"
+        id="btndecrement"
+        value="Decrement"
+      />
+      <input
+      type="button"
+      name="Reset"
+      id="btnReset"
+      value="Reset"
+    />
+    </div>
+    <p class="center" id="pcontainer"></p>
+  </body>
+</html>
+
+js;;;
+
+let counter = 0;
+
+document.getElementById("btnincrement").addEventListener("click", (e) => {
+  counter++;
+  display();
+});
+
+document.getElementById("btndecrement").addEventListener("click", (e) => {
+  counter--;
+  display();
+});
+
+document.getElementById("btnReset").addEventListener("click", (e) => {
+  counter = 0;
+  display();
+});
+
+const display = () => {
+  document.getElementById(
+    "pcontainer"
+  ).innerText = `The value of counter : ${counter}`;
+};
+
+
+
+html;;;;
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 1</title>
+    <script src="Hussain_ABDUL_exercise.js" defer></script>
+    <style>
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <h1>Exercise 1</h1>
+    </div>
+    <div class="center">
+      <input
+        type="button"
+        name="Increment"
+        id="btnincrement"
+        value="Increment"
+      />
+      <input
+        type="button"
+        name="Decrement"
+        id="btndecrement"
+        value="Decrement"
+      />
+      <input
+      type="button"
+      name="Reset"
+      id="btnReset"
+      value="Reset"
+    />
+    </div>
+    <p class="center" id="pcontainer"></p>
+  </body>
+</html>
+
