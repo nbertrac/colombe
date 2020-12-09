@@ -1,0 +1,27 @@
+/* Feuille de style pour Evenement JS */
+
+/* Reset du Body */
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.myDiv{
+    display: inline-block;
+    width: 240px;
+    height: 180px;
+    background-color: #5f9ea0;
+    border: 1px solid #000000;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.divNoire{
+    background-color: #000000;
+    height: 40px;
+    color: white;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+

@@ -1,0 +1,13 @@
+
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    font-family: monospace;
+    background-color: aqua;
+    color: blue;
+    overflow: hidden;
+}
