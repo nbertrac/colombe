@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <link rel="stylesheet" href="Jquery/dist/css/jquery-ui.css">
+    <script src="Jquery/dist/js/jquery.js"></script>
+    <script src="Jquery/dist/js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="Jquery/dist/css/jquery-ui.theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        $(function(){
+            var myOnglets = $("#myConteneur").tabs();
+            myOnglets.find(".ui-tabs-nav").sortable({
+                axis: "x",
+                stop: function(){
+                    tabs.myOnglets("refresh");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="myConteneur">
+        <ul>
+            <li><a href="#Acceuil">Accueil</a></li>
+            <li><a href="#Presentation">Présentation</a></li>
+            <li><a href="#Equipe">Equipe</a></li>
+            <li><a href="#">Notre métier</a></li>
+        </ul>
+        <section id="Accueil">
+            <p>Accueil - Proin elit arcu,</p>
+        </section>
+        <section id="Presentation">
+            <p>Présentation - Morbi tincidunt, dui si amet facilidid</p>
+        </section>
+        <section id="Equipe">
+            <p>Notre équipe - Mauris eleifend est et turois.</p>
+        </section>
+    </div>
+</body>
+</html>
