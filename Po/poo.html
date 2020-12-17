@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO Javascript</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="poo.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Application de la POO.</h1>
+    </header>
+    <div id="Conteneur">
+        <div class="myFiche">
+            <p class="myLabel">Nom : <span id="myNom"></span></p>
+            <p class="myLabel">Prénom : <span id="myPrenom"></span></p>
+            <p class="myLabel">Genre : <span id="myGenre"></span></p>
+            <p class="myLabel">Âge : <span id="myAge"></span></p>
+            <p class="myLabel">Profession : <span id="myProfession"></span></p>
+        </div>
+        <div class="btnFiches">
+            <button type="button" onclick="nouvelleFiche('Alice', 'Durand', 'F', 25, 'Etudiante')">Alice Durand</button>
+            <button type="button" onclick="nouvelleFiche('Bob', 'Leclair', 'M', 32, 'Chauffeur')">Bob Leclair</button>
+            <button type="button" onclick="nouvelleFiche('Corinne', 'Debout', 'F', 32, 'UX/UI Designer')">Corinne Debout</button>
+        </div>
+    </div>
+</body>
+</html>
