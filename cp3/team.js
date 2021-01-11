@@ -17,5 +17,5 @@ let members = [
     {"fname":"Jean-Marc","sex":"M","age":38,"married":true},
     {"fname":"Thomas","sex":"M","age":33,"married":false},
     {"fname":"Alex","sex":"M","age":22,"married":false},
-    {"fname":"Lesly","sex":"M","age":35,"married":false},
+    {"fname":"Lesly","sex":"M","age":53,"married":false},
 ];
