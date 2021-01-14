@@ -1,0 +1,15 @@
+- #code_e
+- #code_m
+- note
+- code_e
+- nom_e
+- ddn
+- sexe
+- code_m
+- nom_m
+- coeff
+- #code_p
+- code_p
+- nom_p
+- grade
+- embauche

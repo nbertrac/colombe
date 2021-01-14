@@ -1,0 +1,69 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+  #mld strong { font-weight: bold }
+  #mld i { font-style: italic }
+  #mld ul { list-style-type:square; margin: 0 0 1em 2em }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>etudie</span> (
+    <span class='primary'>#code_e</span>,
+    <span class='primary'>#code_m</span>,
+    <span class='normal'>note</span>
+  )
+  <ul>
+    <li>Les champs <i>#code_e</i> et <i>#code_m</i> constituent la clef primaire de la table. C'était déjà des identifiants de l'entité <i>etudie</i>.</li>
+    <li>Le champ <i>note</i> était déjà un simple attribut de l'entité <i>etudie</i>.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>etudiants</span> (
+    <span class='primary'>code_e</span>,
+    <span class='normal'>nom_e</span>,
+    <span class='normal'>ddn</span>,
+    <span class='normal'>sexe</span>
+  )
+  <ul>
+    <li>Le champ <i>code_e</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>etudiants</i>.</li>
+    <li>Les champs <i>nom_e</i>, <i>ddn</i> et <i>sexe</i> étaient déjà de simples attributs de l'entité <i>etudiants</i>.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>matieres</span> (
+    <span class='primary'>code_m</span>,
+    <span class='normal'>nom_m</span>,
+    <span class='normal'>coeff</span>,
+    <span class='normal'>#code_p</span>
+  )
+  <ul>
+    <li>Le champ <i>code_m</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>matieres</i>.</li>
+    <li>Les champs <i>nom_m</i>, <i>coeff</i> et <i>#code_p</i> étaient déjà de simples attributs de l'entité <i>matieres</i>.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>enseignants</span> (
+    <span class='primary'>code_p</span>,
+    <span class='normal'>nom_p</span>,
+    <span class='normal'>grade</span>,
+    <span class='normal'>embauche</span>
+  )
+  <ul>
+    <li>Le champ <i>code_p</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>enseignants</i>.</li>
+    <li>Les champs <i>nom_p</i>, <i>grade</i> et <i>embauche</i> étaient déjà de simples attributs de l'entité <i>enseignants</i>.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>
