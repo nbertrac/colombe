@@ -70,4 +70,9 @@ INSERT INTO contacts(prenom, ddn, cp) VALUES('Aymane', '2001-01-10', '95120');
 INSERT INTO contacts(prenom, ddn, cp) VALUES('Aymen', '1993-06-15', '92400');
 INSERT INTO contacts(prenom, ddn, cp) VALUES('Lesli', '1967-11-11', '92700');
 
-SELECT * from contacts
+-- Déduction du mail via mise à jour
+SELECT * from contacts;
+
+START TRANSACTION;
+
+UPDATE contacts set  mail=CONCAT(LOWER(REPLACE(prenom, 'é', 'e')), '@darons-coders.org');
