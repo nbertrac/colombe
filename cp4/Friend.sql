@@ -75,4 +75,5 @@ SELECT * from contacts;
 
 START TRANSACTION;
 
-UPDATE contacts set  mail=CONCAT(LOWER(REPLACE(prenom, 'é', 'e')), '@darons-coders.org');
+UPDATE contacts set  mail=CONCAT(LOWER(REPLACE(prenom, 'é', 'e')), '@darons-coders.org') where id >0;
+commit;
