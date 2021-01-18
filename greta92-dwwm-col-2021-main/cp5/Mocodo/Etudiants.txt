@@ -1,0 +1,4 @@
+etudie (_#code_e_, _#code_m_, note)
+etudiants (_code_e_, nom_e, ddn, sexe)
+matieres (_code_m_, nom_m, coeff, #code_p)
+enseignants (_code_p_, nom_p, grade, embauche)

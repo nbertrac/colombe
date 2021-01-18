@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>etudie</span> (
+    <span class='foreign primary'>code_e</span>,
+    <span class='foreign primary'>code_m</span>,
+    <span class='normal'>note</span>
+  )
+</div>
+<div>
+  <span class='relation'>etudiants</span> (
+    <span class='primary'>code_e</span>,
+    <span class='normal'>nom_e</span>,
+    <span class='normal'>ddn</span>,
+    <span class='normal'>sexe</span>
+  )
+</div>
+<div>
+  <span class='relation'>matieres</span> (
+    <span class='primary'>code_m</span>,
+    <span class='normal'>nom_m</span>,
+    <span class='normal'>coeff</span>,
+    <span class='foreign'>code_p</span>
+  )
+</div>
+<div>
+  <span class='relation'>enseignants</span> (
+    <span class='primary'>code_p</span>,
+    <span class='normal'>nom_p</span>,
+    <span class='normal'>grade</span>,
+    <span class='normal'>embauche</span>
+  )
+</div>
+</div>
+</body>
+</html>

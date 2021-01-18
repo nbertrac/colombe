@@ -1,0 +1,19 @@
+% Copy this before \begin{document}
+
+\usepackage[normalem]{ulem}
+\newenvironment{mld}
+  {\par\begin{minipage}{\linewidth}\begin{tabular}{rp{0.7\linewidth}}}
+  {\end{tabular}\end{minipage}\par}
+\newcommand{\relat}[1]{\textsc{#1}}
+\newcommand{\attr}[1]{\emph{#1}}
+\newcommand{\prim}[1]{\uline{#1}}
+\newcommand{\foreign}[1]{\#\textsl{#1}}
+
+% Copy that after \begin{document}
+
+\begin{mld}
+  Etudie & (\prim{#code\_e}, \prim{#code\_m}, \attr{note})\\
+  Etudiants & (\prim{code\_e}, \attr{nom\_e}, \attr{ddn}, \attr{sexe})\\
+  Matieres & (\prim{code\_m}, \attr{nom\_m}, \attr{coeff}, \attr{#code\_p})\\
+  Enseignants & (\prim{code\_p}, \attr{nom\_p}, \attr{grade}, \attr{embauche})\\
+\end{mld}

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: bisque;
+    background: linear-gradient(to right, bisque,yellow, orange);
+    background: radial-gradient(bisque, cornsilk, white);
+    background: url(../pics/skull.png) no-repeat top right, url(../pics/plane.png) no-repeat bottom right, radial-gradient(bisque, cornsilk, white);
+    margin-bottom: 100px;
+}
+
+h1,h2,h3,h4 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+    color: rgb(255,0,0);
+}
+
+#top {
+    text-shadow: 0 0 10px maroon;
+}
+
+pre {
+    color: blue;
+    border-left: blue 2px solid;
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+dt {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: .5rem 0;
+}
+
+dd, p {
+    text-align: justify;
+}
+
+figure img {
+    border-radius: 50%;
+    border-radius: 2em 3em 4em 5em;
+    border-radius: 50% 20% / 10% 40%;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 7.5px black, -5px -5px 7.5px gray;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: black solid 1px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tbody tr:hover {
+    background-color: gold;
+    cursor: pointer;
+}
+
+thead, tfoot  {
+    background-color: darkgrey;
+    color: white;
+}
+
+table:first-of-type td:last-child {
+    text-align: right;
+}
+
+tbody tr td:nth-child(2) {
+    text-align: center;
+}
+
+
+ol ol {
+    list-style-type: lower-roman;
+}
+
+ul {
+    list-style-image: url(../pics/bullet.png);
+}

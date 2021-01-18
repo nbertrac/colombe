@@ -1,0 +1,33 @@
+CREATE DATABASE IF NOT EXISTS `SANS_TITRE` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `SANS_TITRE`;
+
+CREATE TABLE `ETUDIE` (
+  `#code_e` VARCHAR(42),
+  `#code_m` VARCHAR(42),
+  `note` VARCHAR(42),
+  PRIMARY KEY (`#code_e`, `#code_m`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ETUDIANTS` (
+  `code_e` VARCHAR(42),
+  `nom_e` VARCHAR(42),
+  `ddn` VARCHAR(42),
+  `sexe` VARCHAR(42),
+  PRIMARY KEY (`code_e`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `MATIERES` (
+  `code_m` VARCHAR(42),
+  `nom_m` VARCHAR(42),
+  `coeff` VARCHAR(42),
+  `#code_p` VARCHAR(42),
+  PRIMARY KEY (`code_m`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ENSEIGNANTS` (
+  `code_p` VARCHAR(42),
+  `nom_p` VARCHAR(42),
+  `grade` VARCHAR(42),
+  `embauche` VARCHAR(42),
+  PRIMARY KEY (`code_p`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

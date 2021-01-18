@@ -1,0 +1,13 @@
+%%mocodo
+:
+etudie: #code_e->etudiants->code_e, _#code_m->matieres->code_m, note
+:
+etudiants: code_e, nom_e, ddn, sexe
+:::
+
+
+:
+matieres: code_m, nom_m, coeff, #code_p->enseignants->code_p
+:::
+enseignants: code_p, nom_p, grade, embauche
+:

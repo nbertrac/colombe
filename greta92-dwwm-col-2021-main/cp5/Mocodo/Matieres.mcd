@@ -1,0 +1,7 @@
+etudie, 1N etudiants, 0N matieres:note
+etudiants: code_e, nom_e, ddn, sexe
+:
+
+matieres: code_m, nom_m, coeff
+enseigne, 1N enseignants, 11 matieres
+enseignants: code_p, nom_p, grade, embauche

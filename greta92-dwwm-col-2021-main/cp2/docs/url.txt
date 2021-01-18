@@ -1,0 +1,22 @@
+##################################################
+URL : UNIFORM RESOURCE LOCATOR
+##################################################
+
+https:// = PROTOCOLE
+www.fnac.com = DOMAINE
+/SearchResult/ = PATH
+ResultList.aspx = DOCUMENT
+
+?
+
+##################################################
+QUERYSTRING
+##################################################
+
+SCat=0%211
+&
+Search=bob+marley
+&
+sft=1
+&
+sa=0
