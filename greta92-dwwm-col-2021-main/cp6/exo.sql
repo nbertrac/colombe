@@ -11,4 +11,30 @@ select nom_produit, prix_unitaire, coalesce(unites_stock,0) as unites_stock from
 select * from produits where prix_unitaire < 50 and quantite like '%bouteille%';
 
 -- Challenge 4 : afficher le nom des produits, leur catégorie et le nom du fournisseur pour les produits valant plus de 25 EUR et provenant d'Italie, de France et d'Allemagne
-select nom_produit, nom_categorie, societe  from produits, categories, fournisseurs where prix_unitaire > 25 and pays in('Italie', 'France', 'Allemagne');
+select nom_produit, nom_categorie, societe  from produits p, categories c, fournisseurs f where (p.no_fournisseur=f.no_fournisseur and p.code_categorie=c.code_categorie) and (prix_unitaire > 25 and pays in('Italie', 'France', 'Allemagne'));
+select nom_produit, nom_categorie, societe  from produits p inner join categories c on p.code_categorie=c.code_categorie inner join fournisseurs f on p.no_fournisseur=f.no_fournisseur where prix_unitaire > 25 and pays in('Italie', 'France', 'Allemagne');
+
+-- Challenge 5 : Liste des clients ayant acheté des produits fournis par des sociétés japonaises, novergiennes et brésilliennes
+select distinct c.societe from clients c 
+inner join commandes on c.code_client=commandes.code_client 
+inner join details_commandes d on commandes.no_commande=d.no_commande 
+inner join produits p on d.ref_produit=p.ref_produit 
+inner join fournisseurs f on p.no_fournisseur=f.no_fournisseur 
+where f.pays in('japon','norvège','brésil');
+
+-- Challenge 6 : Qui a réalisé le meilleur CA en 2019
+select e.prenom, e.nom, sum(d.prix_unitaire*d.quantite*(1-d.remise)) as ca from employes e 
+inner join commandes c on e.no_employe=c.no_employe 
+inner join details_commandes d on c.no_commande=d.no_commande 
+where year(c.date_commande) = 2019
+group by e.prenom, e.nom
+order by ca desc
+limit 1;
+
+-- challenge 7 : Quel client a payé la plus grosse facture?
+
+select cl.societe, sum(d.prix_unitaire*d.quantite*(1-d.remise)) as facture from clients cl
+inner join commandes c on cl.code_client=c.code_client 
+inner join details_commandes d on c.no_commande=d.no_commande 
+group by cl.societe
+order by facture desc;
