@@ -35,3 +35,11 @@ function readCookie(name){
         }
     }
 }
+
+/**
+ * Supprime le cookie dans le domaine en cours
+ * @param {string} name - nom du cookie
+ */
+function eraseCookie(name){
+    writeCookie(name, '', -1);
+}
