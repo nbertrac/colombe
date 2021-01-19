@@ -33,7 +33,7 @@ limit 1;
 
 -- challenge 7 : Quel client a payé la plus grosse facture?
 
-select cl.societe, sum(d.prix_unitaire*d.quantite*(1-d.remise)) as facture from clients cl
+select cl.societe, sum(d.prix_unitaire*d.quantite*(1-d.remise))+avg(c.port) as facture from clients cl
 inner join commandes c on cl.code_client=c.code_client 
 inner join details_commandes d on c.no_commande=d.no_commande 
 group by cl.societe
