@@ -16,7 +16,9 @@ function writeCookie(name, value, duration){
     }
 
     // Ecrit le cookie
-    document.cookie=name+'='+value+';expires='+dToday.toLocaleString()+';path=;SameSite=None;Secure';
+    let sCookie = name+'='+value+';expires='+dToday.toLocaleString()+';path=' //;SameSite=None;Secure;
+    if(navigator.userAgent.indexOf('Firefox')>0)sCookie = name+'='+value+';expires='+dToday.toLocaleString()+';path=;SameSite=None;Secure';
+    document.cookie= sCookie;
 }
 
 /**
