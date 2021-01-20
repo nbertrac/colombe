@@ -43,3 +43,64 @@ function readCookie(name){
 function eraseCookie(name){
     writeCookie(name, '', -1);
 }
+
+/**
+ * Click on cookie save cookie as filled in the formulaire
+ */
+if (document.getElementById('saveCookie')){
+ document.getElementById('saveCookie').addEventListener('click', fill, false);
+/*VERSION PERSO
+ function fill(){
+    let c = document.querySelectorAll('input[type=text], select');
+    let valu = '';
+    let t = '';
+    for(let i=0;i<c.length;i++){
+        t= c[i].value;
+        if(valu==='')valu = t;
+        else valu = valu+','+t;
+    }
+    writeCookie(document.getElementById('fname').value, valu, 10);
+ }
+ */
+
+ // Version Prof
+
+ function fill(){
+    let sName = document.getElementById('fname').value;
+    if (sName !== ''){
+    let aValues = [];
+    let aElements = document.querySelectorAll('form [name]:not([name=fname])');
+    for(let i=0;i<aElements.length; i++){
+        aValues.push(aElements[i].value);
+    }
+    let sValues = aValues.join(',');
+    writeCookie(document.getElementById('fname').value, sValues, 7);
+    alert('Cookie sauvegardé avec succès.')
+    }else alert('Prénom obligatoire !')
+
+ }
+}
+
+ /**
+  * Fill Storage_read.html
+  */
+if (document.getElementById('readCookie')){
+    document.getElementById('readCookie').addEventListener('click', cookieT, false)
+
+    function cookieT(){
+        let aCookies = document.cookie.split(';');
+        let oRow, oCell;
+        document.getElementById('tblr').innerHTML='';
+        for(let i=0;i<aCookies.length;i++){
+            let aCookie=aCookies[i].split('=');
+            oRow = document.createElement('tr');
+            oCell=document.createElement('td');
+            oCell.textContent = aCookie[0].trim();
+            oRow.appendChild(oCell);
+            oCell = document.createElement('td');
+            oCell.textContent= aCookie[1];
+            oRow.appendChild(oCell);
+            document.getElementById('tblr').appendChild(oRow);
+        }
+    }
+}
