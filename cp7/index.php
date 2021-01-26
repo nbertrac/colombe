@@ -21,9 +21,6 @@
         <p>Cliquer sur le bouton ci-dessous pour accéder au back-office (user et mot de passe requis) :</p>
         <a class="btn btn-success btn-lg" href="#" role="button">Connexion</a>
     </div>
-    <?php
-    include_once('projects.php');
-    ?>
     <section id="team" class="d-flex justify-content-around flex-wrap">
         <?php
             $html='';
@@ -41,5 +38,13 @@
             };
             echo $html;
         ?>
+    </section>
+
+    <h2>Nos références</h2>
+    <section id='projects'>
+    <?php
+    include_once('projects.php');
+    ?>
+    </section>
 </body>
 </html>
