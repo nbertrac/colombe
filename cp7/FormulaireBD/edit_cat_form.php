@@ -12,7 +12,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Catégories</li>
+            <li class="breadcrumb-item"><a href="edit_cat_list.php">Liste des catégories</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Editions catégories</li>
         </ol>
     </nav>
 
@@ -23,7 +24,7 @@
     </div>
     <div class="form-group">
         <label for="NOM_CATEGORIE">Code catégorie : </label>
-        <input type="text" name="NOM_CATEGORIE" id="NOM_CATEGORIE" class="form-control" required>
+        <input type="text" name="NOM_CATEGORIE" id="NOM_CATEGORIE" class="form-control" pattern="[A-Za-z '\-]{1,25}" required>
     </div>
     <div class="form-group">
         <label for="DESCRIPTION">Description : </label>
@@ -32,7 +33,7 @@
     <div class="form-group">
         <label for="PHOTO">Photo : </label>
         <input type="file" name="PHOTO" id="PHOTO" class="form-control" accept=".gif,.jpg,.jpeg,.png,.webp">
-        <input type="hidden" name="MAX_FILE_SIZE" value="102400">
+        <input type="hidden" name="MAX_FILE_SIZE" value="512000">
     </div>
     <input type="submit" value="Enregistrer" class="btn btn-primary">
     </form>
