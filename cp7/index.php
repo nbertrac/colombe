@@ -75,8 +75,8 @@ $res=mysqli_query($cnn, 'SELECT table_name, table_rows FROM tables where table_s
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form action="register.php" method="post">
       <div class="modal-body">
-        <form action="register.php" method="post">
             <div class="form-group">
                 <label for="pseudo">Pseudo : </label>
                 <input type="text" name="fname" id="fname" pattern="[A-Za-z\u00c0-\u00FF 0-9'\-]{1,25}" required class="form-control">
@@ -93,13 +93,21 @@ $res=mysqli_query($cnn, 'SELECT table_name, table_rows FROM tables where table_s
                 <label for="check">Check password : </label>
                 <input type="password" id="check" pattern="[A-za-z0-9@$*!? ]{8,}" required class="form-control">
             </div>
-            <option value=""></option>
-        </form>
+            <div class="form-group">
+                <label for="land">Pays : </label>
+                <select name="land" id="land" class="form-control">
+                    <?php
+                        $json=file_get_contents('https://restcountries.eu/rest/v2/lang/fr?fields=name;alpha2Code');
+                        $obj=json_decode($json);
+                    ?>
+                </select>
+            </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Valid</button>
+        <input type="submit" value="Send" class="btn btn-primary">
       </div>
+      </form>
     </div>
   </div>
 </div>
