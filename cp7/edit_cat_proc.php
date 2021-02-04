@@ -15,7 +15,9 @@ if(mysqli_connect_errno()){
     printf("Erreur de connexion: %s", mysqli_connect_error());
     exit();
 }
-
+// Teste si UPDATE ou INSERT
+if (isset($_GET['k']) && !empty($_GET['k'])) $update=true;
+else $update=false;
 //Récupération de l'image à téléverser
 var_dump($_FILES);
 if (isset($_FILES['PHOTO']) && $_FILES['PHOTO']['error'] !==UPLOAD_ERR_NO_FILE){
@@ -45,20 +47,26 @@ if (isset($_FILES['PHOTO']) && $_FILES['PHOTO']['error'] !==UPLOAD_ERR_NO_FILE){
         exit();
     }
 }else{
-    $params[3]= null;
+    if($update) $params[3]= $params[4];
 }
+
+
+
 
 // Sécurité : step 3
 // préparation de la requête
 $qry = mysqli_stmt_init($cnn);
-$sql = "INSERT INTO categories(CODE_CATEGORIE, NOM_CATEGORIE, DESCRIPTION, PHOTO) VALUES(?, ?, ?, ?)";
+if ($update) $sql="UPDATE categories SET CODE_CATEGORIE=?, NOM_CATEGORIE=?, DESCRIPTION=?, PHOTO=? WHERE CODE_CATEGORIE=?";
+else $sql = "INSERT INTO categories(CODE_CATEGORIE, NOM_CATEGORIE, DESCRIPTION, PHOTO) VALUES(?, ?, ?, ?)";
 if(mysqli_stmt_prepare($qry,$sql)){
     // Lie les paramètres à la requête préparée
-        mysqli_stmt_bind_param($qry,"isss", $params[0], $params[1], $params[2], $params[3]);
+    if ($update) mysqli_stmt_bind_param($qry,"isssi", $params[0], $params[1], $params[2], $params[3], $_GET['k']);
+    else mysqli_stmt_bind_param($qry,"isss", $params[0], $params[1], $params[2], $params[3]);
     // Execute la requête
     mysqli_stmt_execute($qry);
     // Ferme le statement
     mysqli_stmt_close($qry);
 }
 mysqli_close($cnn);
+header('location:edit_cat_list.php');
 // https://www.php.net/manual/en/mysqli-stmt.prepare.php
