@@ -46,9 +46,7 @@ if (isset($_FILES['PHOTO']) && $_FILES['PHOTO']['error'] !==UPLOAD_ERR_NO_FILE){
         echo'<a href="edit_cat_form.php">Retour au formulaire</a>';
         exit();
     }
-}else{
-    if($update) $params[3]= $params[4];
-}
+}elseif($update) $params[3]= $params[4];
 
 
 

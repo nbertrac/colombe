@@ -8,7 +8,7 @@ else $nb=5;
 // Ouvre la BDD en MYSQLI
 $start= ($pg-1)*$nb;
 $cnn=mysqli_connect('localhost', 'root', 'greta', 'northwind');
-$res=mysqli_query($cnn, "SELECT * FROM clients LIMIT {$start}, {$nb}");
+$res=mysqli_query($cnn, "SELECT * FROM categories LIMIT {$start}, {$nb}");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -65,7 +65,7 @@ $res=mysqli_query($cnn, "SELECT * FROM clients LIMIT {$start}, {$nb}");
         <ul class="pagination">
             <?php
                 //Calcule la pagination
-                $res=mysqli_query($cnn,'SELECT count(*) AS total FROM clients');
+                $res=mysqli_query($cnn,'SELECT count(*) AS total FROM categories');
                 $row=mysqli_fetch_assoc($res);
                 $pgs= ceil($row['total']/$nb);
                 //Affiche la pagination
