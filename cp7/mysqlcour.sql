@@ -36,6 +36,13 @@ TO jean@localhost
 DESCRIBE information_schema.tables
 ;
 
+SHOW GRANTS FOR karima@localhost;
+
+REVOKE DELETE
+ON northwind.commandes
+FROM karima@localhost
+;
+
 SELECT table_name
 FROM information_schema.tables
 where table_schema = 'northwind'
@@ -47,6 +54,9 @@ FROM information_schema.tables
 where table_schema = 'northwind'
 AND table_name LIKE '%commandes%'
 ;
+
+GRANT INSERT, SELECT, UPDATE, DELETE ON northwind.commandes TO karima@localhost;
+GRANT INSERT, SELECT, UPDATE, DELETE ON northwind.details_commandes TO karima@localhost;
 
 GRANT INSERT, SELECT, UPDATE, DELETE
 ON northwind.*
