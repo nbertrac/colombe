@@ -53,4 +53,5 @@ var_dump($obj7);
 
 echo '<h2>Test 7 : Héritage</h2>';
 $obj8 = new Human('Lesly', '1967-11-11');
+$obj8->setWeight(70);
 var_dump($obj8);
