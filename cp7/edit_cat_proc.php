@@ -66,5 +66,5 @@ if(mysqli_stmt_prepare($qry,$sql)){
     mysqli_stmt_close($qry);
 }
 mysqli_close($cnn);
-header('location:edit_cat_list.php');
+header('location:bo.php');
 // https://www.php.net/manual/en/mysqli-stmt.prepare.php

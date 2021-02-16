@@ -30,7 +30,7 @@ else{
         $f=htmlspecialchars($_POST['fname']);
         $p=hash('sha512', sha1(htmlspecialchars($_POST['pass'])), false);
         $l=htmlspecialchars($_POST['land']);
-        $a=0;
+        $a=1;//Si j'arrive a envoyer un mail je le mais a 0 qui changera en 1 avec un mail.
         mysqli_stmt_bind_param($qry,'ssssi', $m, $f, $p, $l, $a);
         $res = mysqli_stmt_execute($qry);
         mysqli_stmt_close($qry);
@@ -71,3 +71,5 @@ else{
 }
 
 mysqli_close($cnn);
+//ON retourne avec un $_GET pour signaler la création du compte
+header('location:index.php?t=1');

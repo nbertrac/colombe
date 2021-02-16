@@ -6,9 +6,12 @@ else $pg=1;
 if (isset($_GET['nb']) && !empty($_GET['nb'])) $nb= (int) $_GET['nb'];
 else $nb=5;
 // Ouvre la BDD en MYSQLI
+if(isset($_GET['t']) && !empty($_GET['t'])) $selec=$_GET['t'];
+else header('location:bo.php');
+$cat=(isset($_GET['t']) && !empty($_GET['t']))? ($selec): ('vide');
 $start= ($pg-1)*$nb;
 $cnn=mysqli_connect('localhost', 'root', 'greta', 'northwind');
-$res=mysqli_query($cnn, "SELECT * FROM categories LIMIT {$start}, {$nb}");
+$res=mysqli_query($cnn, "SELECT * FROM {$selec} LIMIT {$start}, {$nb}");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,17 +22,17 @@ $res=mysqli_query($cnn, "SELECT * FROM categories LIMIT {$start}, {$nb}");
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 <body class="container">
-    <h1>Liste des catégories</h1>
+    <h1><?php echo $cat; ?></h1>
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
             <li class="breadcrumb-item"><a href="index.php"></a></li>
-            <li class="breadcrumb-item active" aria-current="page">Liste des catégories</li>
+            <li class="breadcrumb-item active" aria-current="page"><?php echo $cat; ?></li>
         </ol>
     </nav>
 
-    <a href="edit_cat_form.php" class="btn btn-success">Catégorie</a>
+    <a href="edit_cat_form.php" class="btn btn-success"><?php echo $cat; ?></a>
 
     <table class="table table-dark table-striped">
         <thead>

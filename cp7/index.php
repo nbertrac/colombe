@@ -15,6 +15,18 @@ $res=mysqli_query($cnn, 'SELECT table_name, table_rows FROM tables where table_s
 <body class="container">
     <div class="jumbotron">
         <h1 class="display-4">Northwind Traders</h1>
+        <?php
+            if(isset($_GET['t']) && $_GET['t']==='1'){
+                echo    ('<div class="alert alert-light alert-dismissible fade show" role="alert">
+                            Utilisateur créé avec succès!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>');
+            }
+            if(isset($_GET['tried']) && !empty($_GET['tried'])) echo '<div class="alert alert-light alert-dismissible fade show" role="alert">
+            Un des champs est faux
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>';
+        ?>
         <p class="lead">Projet fil rouge en HTML, CSS, JS, PHP et MySQL basé sur le jeu de données Northwind.
         <?php
             include_once('team.php');
@@ -24,10 +36,11 @@ $res=mysqli_query($cnn, 'SELECT table_name, table_rows FROM tables where table_s
         </p>
         <hr class="my-4">
         <p>Cliquer sur le bouton ci-dessous pour accéder au back-office (user et mot de passe requis) :</p>
-        <a class="btn btn-success btn-lg" href="login.php" role="button">Connexion</a>
-        <a class="btn btn-warning btn-lg" href="#" role="button" data-toggle="modal" data-target="#staticBackdrop">Inscription</a>
+        <a class="btn btn-success btn-lg" href="login.php" role="button" data-toggle="modal" data-target="#login">Connexion</a>
+        <a class="btn btn-warning btn-lg" href="#" role="button" data-toggle="modal" data-target="#register">Inscription</a>
     </div>
-    <section id="team" class="d-flex justify-content-around flex-wrap">
+    <h2>Membres de l'équipe</h2>
+    <section id="team" class="d-flex justify-content-around flex-wrap">    
         <?php
             $html='';
             for($i=0;$i<count($members);$i++){
@@ -67,7 +80,38 @@ $res=mysqli_query($cnn, 'SELECT table_name, table_rows FROM tables where table_s
             </section>
     </div>
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="login" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Connexion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="login.php" method="post" id="cform">
+      <div class="modal-body">
+            <div class="form-group">
+                <label for="mail">Mail : </label>
+                <input type="email" name="mail" id="mail" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="pass">Password : </label>
+                <input type="password" name="pass" id="cpass" pattern="[A-za-z0-9@$*!? ]{8,}" required class="form-control">
+            </div>
+                </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" value="Send" class="btn btn-primary" id="send">
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="register" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
