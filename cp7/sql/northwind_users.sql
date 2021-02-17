@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS users
 
 CREATE TABLE users (
 	mail VARCHAR(255) PRIMARY KEY,
-    fname VARCHAR(30) NOT NULL,
+    fname VARCHAR(30) NOT NULL UNIQUE,
     pass VARCHAR(255) NOT NULL,
     land VARCHAR(100),
     active INT -- DEFAULT 1
@@ -40,6 +40,8 @@ SELECT *
 FROM users
 ;
 
+SELECT * from users where fname = 'testage';
+
 -- Tests
 -- karima@localhost.org
 -- secret
@@ -56,3 +58,5 @@ AND pass = SHA2(CONCAT(SHA1('secret'), MD5('karima@localhost.org')), 512)
 ;
 
 DELETE from users where fname = 'testage';
+
+SELECT * FROM categories LIMIT 0, 5;

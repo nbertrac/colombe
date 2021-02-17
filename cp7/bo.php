@@ -1,3 +1,12 @@
+<?php
+// Démarre ou restaure une session
+session_start();
+// Teste si une connexion est active
+if (!isset($_SESSION['connected']) || !$_SESSION['connected']){
+    header('location:index.php?c=2');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,6 +18,13 @@
 
 </head>
 <body class="container">
+    <h1>Back-office</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Back-office</li>
+        </ol>
+    </nav>
     <section class="row d-flex justify-content-between">
         <?php
             include_once('constants.php');
@@ -36,7 +52,7 @@
                 $html .='<h5 class="card-title">'.$row["TABLE_NAME"].'</h5>';
                 $html .='<p class="card-text">Clé primaire : '.$row["COLUMN_NAME"].'</p>';
                 $html .='<p class="card-text">Nombre de lignes : '.$row["TABLE_ROWS"].'</p>';
-                $html .='<a href="edit_cat_list.php?t='.$row['TABLE_NAME'].'&k='.$row["COLUMN_NAME"].'" class="btn btn-primary">Détails</a>';
+                $html .='<a href="list.php?t='.$row['TABLE_NAME'].'&k='.$row["COLUMN_NAME"].'" class="btn btn-primary">Détails</a>';
                 $html .='</div></div>';
             }
             echo $html;

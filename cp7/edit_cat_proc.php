@@ -5,7 +5,7 @@
 // Protège les saisies d'une éventuelle injection
 $params = [];
 foreach ($_POST as $key => $val){
-    if(isset($_POST[$key]) && !empty($_POST[$key]))$params[]=htmlspecialchars($_POST[$key]);
+    if(isset($_POST[$key]) && !empty($_POST[$key]))$params[]=htmlspecialchars($_POST[$key]); // LOOK HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     else $params[]=null;
 }
 

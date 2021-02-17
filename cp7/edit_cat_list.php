@@ -68,15 +68,16 @@ $res=mysqli_query($cnn, "SELECT * FROM {$selec} LIMIT {$start}, {$nb}");
         <ul class="pagination">
             <?php
                 //Calcule la pagination
-                $res=mysqli_query($cnn,'SELECT count(*) AS total FROM categories');
+                $res=mysqli_query($cnn,'SELECT count(*) AS total FROM '.$cat);
                 $row=mysqli_fetch_assoc($res);
                 $pgs= ceil($row['total']/$nb);
                 //Affiche la pagination
-                $html='';
+                $html='<section class="row d-flex">';
                 for ($i=1;$i<=$pgs;$i++){
                     $href=$_SERVER['PHP_SELF'].'?pg='.$i.'&nb='.$nb;
                     $html.='<li class="page-item'.($pg===$i?' active':'').'"><a class="page-link" href="'.$href.'">'.$i.'</a></li>';
                 }
+                $html.='</section>';
                 echo $html;
                 mysqli_close($cnn);
             ?>

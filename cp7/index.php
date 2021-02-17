@@ -1,6 +1,7 @@
 <?php
-$cnn=mysqli_connect('localhost', 'root', 'greta', 'information_schema');
-$res=mysqli_query($cnn, 'SELECT table_name, table_rows FROM tables where table_schema = "northwind"');
+session_start();
+$connected=false;
+if (isset($_SESSION['connected']) && $_SESSION['connected']) $connected= $_SESSION['connected'];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -22,10 +23,16 @@ $res=mysqli_query($cnn, 'SELECT table_name, table_rows FROM tables where table_s
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>');
             }
-            if(isset($_GET['tried']) && !empty($_GET['tried'])) echo '<div class="alert alert-light alert-dismissible fade show" role="alert">
-            Un des champs est faux
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>';
+            if(isset($_GET['c']) && !empty($_GET['c'])){
+              if($_GET['c']==1) echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+              Un des champs est faux
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>';
+              elseif($_GET['c']==2) echo '<div class="alert alert-light alert-dismissible fade show" role="alert">
+              Connexion échue
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>';
+            }
         ?>
         <p class="lead">Projet fil rouge en HTML, CSS, JS, PHP et MySQL basé sur le jeu de données Northwind.
         <?php
@@ -36,7 +43,8 @@ $res=mysqli_query($cnn, 'SELECT table_name, table_rows FROM tables where table_s
         </p>
         <hr class="my-4">
         <p>Cliquer sur le bouton ci-dessous pour accéder au back-office (user et mot de passe requis) :</p>
-        <a class="btn btn-success btn-lg" href="login.php" role="button" data-toggle="modal" data-target="#login">Connexion</a>
+        <a class="btn btn-success btn-lg" href="login.php" role="button" data-toggle="modal" data-target="#login" style="display:<?php echo ($connected? 'none': ''); ?>">Connexion</a>
+        <a class="btn btn-danger btn-lg" href="logout.php" role="button" style="display:<?php echo ($connected? '': 'none'); ?>">Déconnexion</a>
         <a class="btn btn-warning btn-lg" href="#" role="button" data-toggle="modal" data-target="#register">Inscription</a>
     </div>
     <h2>Membres de l'équipe</h2>
@@ -65,20 +73,6 @@ $res=mysqli_query($cnn, 'SELECT table_name, table_rows FROM tables where table_s
     include_once('projects.php');
     ?>
     </section>
-
-    <div id="bo">
-            <h2>Back-office</h2>
-            <section id="tables">
-                <?php
-                    $html='';
-                    while($row=mysqli_fetch_assoc($res)){
-                        $html .='<a class="btn btn-primary" href="categories.php"'.$row["TABLE_NAME"].'">'.$row["TABLE_NAME"].' <span class="badge badge-light">'.$row["TABLE_ROWS"].'</span></a>';
-                    }
-                    echo $html;
-                    mysqli_close($cnn);
-                ?>
-            </section>
-    </div>
 <!-- Modal -->
 <div class="modal fade" id="login" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
