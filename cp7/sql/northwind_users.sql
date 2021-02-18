@@ -1,6 +1,8 @@
 USE northwind
 ;
 
+select * from categories;
+
 -- Création de la table users
 DROP TABLE IF EXISTS users
 ;
