@@ -16,9 +16,12 @@ $start= ($pg-1)*$nb;
     <title>Northwind Traders</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="stylecp7.css">
+    <script src="list.js"></script>
 </head>
 <body class="container">
     <?php
+    $t=$_GET['t'];
+    $k=$_GET['k'];
     //Message si pas d'info dans l'url
         if (!isset($_GET['t']) || empty($_GET['t']) || !isset($_GET['k']) || empty($_GET['k'])){
         echo '<p><strong>Attention ! </strong> Aucune donnée à afficher : <a href="bo.php">retour au back-office</a></p>';
@@ -32,6 +35,10 @@ $start= ($pg-1)*$nb;
         $t=$_GET['t'];
         echo '<h1>Base de données : ' . DB . '</h1>';
         echo '<h2>Table : ' .$t. '</h2>';
+        echo '<a class="btn btn-success m-1" href="edit.php?t='.$t.'&k='.$k.'&v=">Ajouter</a>';
+        echo '<a class="btn btn-danger m-1" href="export_pdf.php?t='.$t.'">Export PDF</a>';
+        echo '<a class="btn btn-secondary m-1" href="export_csv.php?t='.$t.'">Export CSV</a>';
+        echo '<a class="btn btn-info m-1" href="export_xml.php?t='.$t.'">Export XML</a>';
         // Exécute et lit la requête
         try {
             $sql="SELECT * FROM ".$t." LIMIT {$start}, {$nb}";
@@ -83,8 +90,8 @@ $start= ($pg-1)*$nb;
                             $html.='<td><img src="'.$val.'" style="width:5rem"/></td>';
                         }else $html.='<td align="'.$align.'">'.$val.'</td>';
                     }
-                    $html.='<td><a class="btn btn-light btn-lg" href="edit.php?t='.$_GET['t'].'&k='.$_GET['k'].'&v='.$row[$_GET['k']].'" role="button">Maj</a></td>';
-                    $html.='<td><a class="btn btn-danger btn-lg" href="delete.php?t='.$_GET['t'].'&k='.$_GET['k'].'&v='.$row[$_GET['k']].'" role="button">Suppr</a></td>';
+                    $html.='<td><a class="war btn btn-warning btn-lg" href="edit.php?t='.$t.'&k='.$k.'&v='.$row[$k].'" role="button">Maj</a></td>';
+                    $html.='<td><a class="war btn btn-danger btn-lg" href="delete.php?t='.$t.'&k='.$k.'&v='.$row[$k].'" role="button">Suppr</a></td>';
                     $html.='</tr>';
                 }
                 echo $html;
@@ -107,7 +114,7 @@ $start= ($pg-1)*$nb;
                 //Affiche la pagination
                 $html='<section class="row d-flex">';
                 for ($i=1;$i<=$pgs;$i++){
-                    $href=$_SERVER['PHP_SELF'].'?t='.$_GET['t'].'&k='.$_GET['k'].'&pg='.$i.'&nb='.$nb;
+                    $href=$_SERVER['PHP_SELF'].'?t='.$t.'&k='.$k.'&pg='.$i.'&nb='.$nb;
                     $html.='<li class="page-item'.($pg===$i?' active':'').'"><a class="page-link" href="'.$href.'">'.$i.'</a></li>';
                 }
                 $html.='</section>';

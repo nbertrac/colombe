@@ -45,7 +45,7 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) $connected= $_SESSI
         <p>Cliquer sur le bouton ci-dessous pour accéder au back-office (user et mot de passe requis) :</p>
         <a class="btn btn-success btn-lg" href="login.php" role="button" data-toggle="modal" data-target="#login" style="display:<?php echo ($connected? 'none': ''); ?>">Connexion</a>
         <a class="btn btn-danger btn-lg" href="logout.php" role="button" style="display:<?php echo ($connected? '': 'none'); ?>">Déconnexion</a>
-        <a class="btn btn-warning btn-lg" href="#" role="button" data-toggle="modal" data-target="#register">Inscription</a>
+        <a class="btn btn-warning btn-lg" href="#" role="button" data-toggle="modal" data-target="#register" style="display:<?php echo ($connected? 'none': ''); ?>">Inscription</a>
     </div>
     <h2>Membres de l'équipe</h2>
     <section id="team" class="d-flex justify-content-around flex-wrap">    

@@ -9,9 +9,9 @@ $t=htmlspecialchars($_GET['t']);
 $k=htmlspecialchars($_GET['k']);
 $v=htmlspecialchars($_GET['v']);
 try {
-    $sql='DELETE from '.$t.' WHERE '.$k.' = '.$v;
+    $sql="DELETE from $t WHERE $k =?";
     $qry= $cnn->prepare($sql);
-    $qry->execute();
+    $qry->execute(array($v));
 }catch (PDOException $err){
     echo '<p class="alert alert-danger">'.$err->getMessage().'</p>';
 }

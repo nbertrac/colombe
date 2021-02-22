@@ -4,8 +4,6 @@ include_once('pdo_connect.php');
 $t=$_GET['t'];
 $k=$_GET['k'];
 $v=$_GET['v'];
-if (isset($_POST['to']) && !empty($_POST['to'])) $to=htmlspecialchars($_POST['to']);
-elseif(isset($_POST['tow']) && !empty($_POST['tow'])) $to=htmlspecialchars($_POST['tow']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,7 +30,7 @@ if (!isset($_GET['t']) || empty($_GET['t']) || !isset($_GET['k']) || empty($_GET
         </ol>
     </nav>
 
-    <form action="" method="post"></form>
+    <form action="save.php?<?php echo $_SERVER['QUERY_STRING'] ?>" method="post">
     <?php
     // Prepare la requete
     try{
@@ -58,11 +56,12 @@ if (!isset($_GET['t']) || empty($_GET['t']) || !isset($_GET['k']) || empty($_GET
             $html.='<input class="form-control" type="text" id="'.$key.'" name="'.$key.'" value="'.$val.'"/>';
             $html.='</div>';
         }
-        $html.='<a class="btn btn-primary btn-lg" href="login.php" role="button"">Enregistrer</a>';
+        $html.='<input type="submit" value="Send" class="btn btn-primary" id="send">';
         echo $html;
     }catch (PDOException $err){
         echo '<p class="alert alert-danger">'.$err->getMessage().'</p>';
     }
     ?>
+    </form>
 </body>
 </html>
