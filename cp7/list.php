@@ -39,6 +39,7 @@ $start= ($pg-1)*$nb;
         echo '<a class="btn btn-danger m-1" href="export_pdf.php?t='.$t.'">Export PDF</a>';
         echo '<a class="btn btn-secondary m-1" href="export_csv.php?t='.$t.'">Export CSV</a>';
         echo '<a class="btn btn-info m-1" href="export_xml.php?t='.$t.'">Export XML</a>';
+        echo '<a class="btn btn-dark m-1" href="export_json.php?t='.$t.'">Export JSON</a>';
         // Exécute et lit la requête
         try {
             $sql="SELECT * FROM ".$t." LIMIT {$start}, {$nb}";
