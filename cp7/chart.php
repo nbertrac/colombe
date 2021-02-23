@@ -50,7 +50,9 @@ for($i=0;$i<count($data);$i++){
     imagefilledrectangle($img,$gap+($i*$wbar),$hmax-$hbar,$gap+($i*$wbar)+$wbar,$h-$gap,$alea);
     imagefilledrectangle($img,$gap+($i*$wbar),$hmax-$hbar,$gap+($i*$wbar)+$wbar,$h-$gap,$white);
     // Labels : CA en haut des barres
-    imagestring($img,5,$gap+($i*$wbar),$h-$hbar-(3*-$gap),$data[$i]['ca'], $white);
+    imagestring($img,5,$gap+($i*$wbar),$h-$hbar-(3*-$gap),round($data[$i]['ca'])/1000, $white);
+    // Graduation en bas des barres
+    imagestring($img,5,$gap+($i*$wbar),$h-$gap,$data[$i]['mois'],$black);
 }
 
 // Affiche le resultat
