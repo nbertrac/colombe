@@ -87,13 +87,13 @@
      * @return int nombre de lignes impactées (defaut 1)
      */
 
-     public function update(string $post, string $pk, string $id): int{
+     public function update(array $post, string $pk, string $id): int{
          // Remplit le tableau de paramètres
          foreach($post as $key=>$val){
              $vals[':'.$key]=$val;
              $set[]= $key.'='.$key;
          }
-         $val[':id']=$id;
+         $vals[':id']=$id;
          // Prépare et exécute la requête
          $sql='UPDATE '.$this->table.' SET '. implode(',',$set).' WHERE '.$pk.'=:id';
          try{
