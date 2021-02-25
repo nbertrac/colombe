@@ -100,12 +100,12 @@ class Singleton{
                 $qry=self::getPDO()->prepare($sql);
                 $qry->execute($vals);
                 //Construit le composant HTML
-                $html='<select id="'.$id.'" name="'.$id.'" class"form-controle">';
+                $html='<select id="'.$id.'" name="'.$id.'" class="form-control">';
                 while($row=$qry->fetch(PDO::FETCH_NUM)){
                     if($qry->columnCount()===1){
                         $html.='<option value="'.$row[0].'">'.$row[0].'</option>';
                     }else{
-                        $html.='<option value="'.$row[1].'">'.$row[1].'</option>';
+                        $html.='<option value="'.$row[0].'">'.$row[1].'</option>';
                     }
                 }
                 $html.='</select>';
@@ -159,4 +159,20 @@ class Singleton{
              throw new Exception(__CLASS__.' : Aucune configuration définie (hôte, port et nom BDD).');
          }
     }
+
+    /**
+     * Méthode qui renvoie le résultat d'une requête sous la form d'un objet JSON
+     * @param string $sql - requête préparée SELECT/SHOW
+     * @param array $vals - paramètres
+     */
+
+     public static function getAllData(string $sql, array $vals = array()): string {
+         try{
+            $qry=self::getPDO()->prepare($sql);
+            $qry->execute($vals);
+            return json_encode($qry->fetchAll());
+         }catch (PDOException $err){
+             throw new PDOException(__CLASS__.' : '.$err->getMessage());
+         }
+     }
 }

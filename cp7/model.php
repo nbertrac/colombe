@@ -91,7 +91,7 @@
          // Remplit le tableau de paramètres
          foreach($post as $key=>$val){
              $vals[':'.$key]=$val;
-             $set[]= $key.'='.$key;
+             $set[]= $key.'=:'.$key;
          }
          $vals[':id']=$id;
          // Prépare et exécute la requête
@@ -99,6 +99,24 @@
          try{
             $qry=$this->db->prepare($sql);
             $qry->execute($vals);
+            return $qry->rowCount();
+         }catch (PDOException $err){
+                throw new PDOException(__CLASS__.' : '.$err->getMessage());
+            }
+     }
+
+    /**
+     * Méthode qui supprime une ligne de la table en cours
+     * @param string $pk - colonne clé primaire
+     * @param string $id - ID de la ligne a supprimer
+     * @return int nombre de ligne supprimées (défaut 1);
+     */
+
+     public function delete(string $pk, string $id): int{
+         try{
+            $sql='DELETE FROM '.$this->table.' WHERE '.$pk.'=?';
+            $qry=$this->db->prepare($sql);
+            $qry->execute(array($id));
             return $qry->rowCount();
          }catch (PDOException $err){
                 throw new PDOException(__CLASS__.' : '.$err->getMessage());

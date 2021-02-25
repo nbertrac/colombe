@@ -24,6 +24,10 @@ if (!isset($_SESSION['connected']) || !$_SESSION['connected']){
             <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
             <li class="breadcrumb-item active" aria-current="page">Back-office</li>
         </ol>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="statistiques.php" class="btn btn-secondary">Statistiques des ventes<a>
+            <a href="calendar.php" class="btn btn-secondary">Calendrier des commandes</a>
+        </div>
     </nav>
     <section class="row d-flex justify-content-between">
         <?php

@@ -25,15 +25,19 @@ var_dump($produits->getRow('REF_PRODUIT', 11));
 // Test 7 : insert
 $cat=new Model(HOST,3306,DB,USER,PASS, 'categories');
 // $cat->insert(array(
-//     'CODE_CATEGORIE'=>666,
+//     'CODE_CATEGORIE'=>668,
 //     'NOM_CATEGORIE'=>'Devil Cream',
 //     'DESCRIPTION'=>'Diaboliquement bon'
 // ));
 
 // Test 8 : update
 $cat->update(array(
-         'CODE_CATEGORIE'=>999,
+         'CODE_CATEGORIE'=>'999',
          'NOM_CATEGORIE'=>'Devil Creamy',
          'DESCRIPTION'=>'Diaboliquement bad'
 ), 'CODE_CATEGORIE', '666');
+var_dump($cat->getRows());
+
+// Test 9 : update
+$cat->delete('CODE_CATEGORIE', '999');
 var_dump($cat->getRows());
